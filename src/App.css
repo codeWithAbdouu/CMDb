@@ -1,0 +1,157 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --radius-2xl: calc(var(--radius) + 8px);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-gold: var(--gold);
+    --color-gold-foreground: var(--gold-foreground);
+    --font-display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
+    --font-sans: "Inter", system-ui, sans-serif;
+}
+
+:root {
+    --radius: 0.75rem;
+    /* light */
+    --background: oklch(0.985 0.005 80);
+    --foreground: oklch(0.18 0.02 270);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.18 0.02 270);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.18 0.02 270);
+    --primary: oklch(0.78 0.16 75);
+    --primary-foreground: oklch(0.18 0.02 270);
+    --secondary: oklch(0.95 0.01 270);
+    --secondary-foreground: oklch(0.2 0.02 270);
+    --muted: oklch(0.95 0.01 270);
+    --muted-foreground: oklch(0.5 0.02 270);
+    --accent: oklch(0.93 0.02 75);
+    --accent-foreground: oklch(0.2 0.02 270);
+    --destructive: oklch(0.6 0.22 25);
+    --destructive-foreground: oklch(0.99 0 0);
+    --border: oklch(0.9 0.01 270);
+    --input: oklch(0.92 0.01 270);
+    --ring: oklch(0.78 0.16 75);
+    --gold: oklch(0.82 0.17 80);
+    --gold-foreground: oklch(0.18 0.02 270);
+}
+
+.dark {
+    /* deep cinema */
+    --background: oklch(0.14 0.015 270);
+    --foreground: oklch(0.97 0.005 80);
+    --card: oklch(0.18 0.02 270);
+    --card-foreground: oklch(0.97 0.005 80);
+    --popover: oklch(0.17 0.02 270);
+    --popover-foreground: oklch(0.97 0.005 80);
+    --primary: oklch(0.82 0.17 80);
+    --primary-foreground: oklch(0.16 0.02 270);
+    --secondary: oklch(0.24 0.02 270);
+    --secondary-foreground: oklch(0.97 0.005 80);
+    --muted: oklch(0.22 0.015 270);
+    --muted-foreground: oklch(0.7 0.015 270);
+    --accent: oklch(0.28 0.04 75);
+    --accent-foreground: oklch(0.97 0.005 80);
+    --destructive: oklch(0.62 0.22 25);
+    --destructive-foreground: oklch(0.98 0 0);
+    --border: oklch(0.28 0.02 270);
+    --input: oklch(0.26 0.02 270);
+    --ring: oklch(0.82 0.17 80);
+    --gold: oklch(0.85 0.17 80);
+    --gold-foreground: oklch(0.16 0.02 270);
+}
+
+@theme {
+    /* ─── Colors ─── */
+
+
+    /* ─── Letter Spacing ─── */
+    --tracking-extra-tight: -0.075em;
+    --tracking-ultra-tight: -0.1em;
+
+    /* ─── Screens ─── */
+    --breakpoint-sm-max: 420px;
+    --breakpoint-sm: 550px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+
+    /* ─── Font Families ─── */
+    --font-Inter: "Inter", sans-serif;
+
+    /* ─── New Font Sizes ─── */
+}
+
+/* @layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+
+    html {
+        @apply font-sans;
+    }
+} /*
+ */
+
+@layer base {
+    * { border-color: var(--color-border); }
+    html { font-family: var(--font-sans); }
+    body {
+        background-color: var(--color-background);
+        color: var(--color-foreground);
+        font-feature-settings: "ss01", "cv11";
+    }
+    h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+@utility text-balance { text-wrap: balance; }
+@utility container-page {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 1400px;
+    padding-inline: 1rem;
+    @media (min-width: 768px) { padding-inline: 2rem; }
+}
+@utility scrollbar-none {
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+}
+@utility poster-hover {
+    transition: transform 250ms ease, box-shadow 250ms ease;
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px -10px oklch(0 0 0 / 0.5);
+    }
+}
